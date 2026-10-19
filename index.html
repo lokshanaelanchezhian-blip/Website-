@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SOCIAL HUB – Social Networking Explained</title>
+<style>
+:root{--bg:#f7f8fc;--card:#fff;--ink:#14161f;--mute:#5a6075;--line:#e2e5ef;--acc:#5b35e8;--acc2:#e8318a;--soft:#eeeafd;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1017;--card:#171a25;--ink:#eef0f7;--mute:#9ba1b8;--line:#292d3c;--acc:#9d80ff;--acc2:#ff72b4;--soft:#211f3a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1017;--card:#171a25;--ink:#eef0f7;--mute:#9ba1b8;--line:#292d3c;--acc:#9d80ff;--acc2:#ff72b4;--soft:#211f3a;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--line);z-index:5}
+.bar{max-width:1040px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;gap:18px}
+.logo{font-weight:800;font-size:1.25rem;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none;flex:none}
+nav{display:flex;gap:4px;overflow-x:auto}
+nav a{flex:none;padding:7px 12px;border-radius:8px;color:var(--mute);text-decoration:none;font-size:.9rem;font-weight:600}
+nav a.on{background:var(--soft);color:var(--acc)}
+main{max-width:1040px;margin:0 auto;padding:22px 18px 10px}
+.hero{border-radius:20px;padding:34px 26px;color:#fff;background:linear-gradient(135deg,#5b35e8,#e8318a)}
+.hero small{letter-spacing:1.2px;text-transform:uppercase;opacity:.85}
+.hero h1{margin:8px 0 10px;font-size:1.7rem;line-height:1.25}
+.hero p{margin:0;max-width:620px;opacity:.93}
+.btn{display:inline-block;margin-top:16px;padding:9px 18px;border-radius:99px;background:#fff;color:#5b35e8;font-weight:700;text-decoration:none;font-size:.9rem}
+h2{font-size:1.25rem;margin:30px 0 12px}
+h3{font-size:1.02rem;margin:0 0 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card p{margin:0;color:var(--mute);font-size:.92rem}
+.card a.more{display:inline-block;margin-top:10px;color:var(--acc);font-weight:700;font-size:.88rem;text-decoration:none}
+.tag{font-size:.72rem;font-weight:700;color:var(--acc);text-transform:uppercase;letter-spacing:.8px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:22px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.stat b{display:block;font-size:1.4rem;color:var(--acc)}
+.stat span{font-size:.8rem;color:var(--mute)}
+.page h1{font-size:1.9rem;margin:6px 0 8px;line-height:1.2}
+.lead{font-size:1.05rem;color:var(--mute);max-width:720px}
+.crumb{font-size:.82rem;color:var(--mute)}
+.crumb a{color:var(--acc);text-decoration:none}
+.body{max-width:760px}
+.body p{margin:0 0 14px}
+.key{background:var(--soft);border-radius:14px;padding:16px 20px;margin:18px 0}
+.key ul{margin:6px 0 0;padding-left:20px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--mute);font-size:.93rem}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{color:var(--acc)}
+footer{max-width:1040px;margin:30px auto 0;padding:22px 18px 34px;border-top:1px solid var(--line);color:var(--mute);font-size:.82rem;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="bar"><a class="logo" href="#home">SOCIAL HUB</a><nav id="nav"></nav></div></header>
+<main id="app"></main>
+<footer><span>© 2026 SOCIAL HUB. Educational content; figures and headlines are illustrative samples.</span><span>Social networking, explained clearly.</span></footer>
+<script>
+var S={
+platforms:{n:"Platforms",t:"Social Media Platforms",l:"How today’s major networks work, who uses them, and what makes each one different.",
+p:["A social networking platform is a digital space where people create profiles, share content and interact with others. Platforms differ mainly in what they reward: photo apps reward visual taste, video apps reward watch time, and messaging apps reward close, frequent conversation.","Most platforms earn money through advertising. Because ads depend on attention, feeds are ranked by algorithms that predict what you will engage with. Understanding this helps you use a platform on purpose rather than by default.","In India, messaging and short video lead daily usage, with regional languages driving much of the growth. Platforms increasingly add shopping, payments and communities to keep users inside one app."],
+k:["Every platform has a core format: photos, video, text or chat.","Algorithms decide most of what you see, not just who you follow.","Features copy each other quickly, so differences are mostly audience and culture."],
+tb:[["Type","Best for","Main format"],["Photo and video sharing","Personal brands, visual stories","Images, Reels"],["Short video","Discovery, entertainment","Vertical clips"],["Messaging","Close friends, groups, business","Chat, voice, status"],["Professional networks","Careers, hiring, B2B","Posts, articles"],["Text networks","News, public conversation","Short posts"]],
+f:[["Which platform should a beginner start with?","Start where your audience already is. Friends and family usually mean messaging apps; career goals mean a professional network."],["Why does my feed keep changing?","Ranking systems update constantly based on your behavior and the platform’s goals."]]},
+creators:{n:"Creators",t:"The Creator Economy",l:"How individuals turn content, community and consistency into a career.",
+p:["A creator is anyone who builds an audience by publishing content regularly. The creator economy includes video makers, writers, educators, streamers and podcasters who earn from ads, sponsorships, subscriptions and product sales.","Success rarely comes from going viral once. It comes from a clear niche, a repeatable format and genuine interaction with followers. Micro-creators with small but loyal audiences often get better engagement than celebrities.","Regional-language creators have become a major force in India, serving audiences that mainstream media overlooked. Education, cooking, tech reviews and local comedy are among the strongest categories."],
+k:["Pick a narrow niche first; broaden later.","Consistency beats perfection: a steady schedule builds trust.","Diversify income so you do not depend on one platform."],
+tb:[["Income source","How it works","Effort"],["Platform ad share","Paid per views or watch time","Needs scale"],["Brand deals","Sponsored posts or videos","Needs trust"],["Subscriptions","Fans pay monthly","Needs community"],["Own products","Courses, merchandise","Needs time upfront"]],
+f:[["How many followers do I need to earn?","Some income starts with just a few thousand engaged followers, especially through brand deals and products."],["Is it too late to start?","No. New niches and formats appear constantly, and audiences always want fresh voices."]]},
+privacy:{n:"Privacy & Safety",t:"Privacy and Online Safety",l:"Practical steps to protect your data, your accounts and your wellbeing.",
+p:["Every post, like and location tag becomes data. Platforms and advertisers use it to build a profile of your interests. You cannot hide completely, but you can control how much you share and who can see it.","Account security is the first layer. Strong, unique passwords and two-factor authentication stop most takeovers. Be careful with links in messages, even from friends, since hacked accounts are commonly used to spread scams.","Safety also means mental wellbeing. Set time limits, mute accounts that upset you, and remember that feeds show highlights, not real life. Parents should use built-in supervision tools and talk openly with teens."],
+k:["Turn on two-factor authentication everywhere.","Review privacy settings and app permissions every few months.","Never share OTPs, and verify unexpected requests by calling the person."],
+tb:[["Risk","Warning sign","What to do"],["Phishing","Urgent message with a link","Do not click; report it"],["Account takeover","Unknown logins","Change password, enable 2FA"],["Oversharing","Public location posts","Limit audience, remove tags"],["Harassment","Repeated abusive messages","Block, report, save evidence"]],
+f:[["Is a private account fully safe?","It limits who sees posts, but followers can still screenshot or share. Share only what you are comfortable with."],["How do I report a fake profile?","Open the profile, choose report, and pick impersonation or fake account."]]},
+trends:{n:"Trends",t:"Trends Shaping Social Media",l:"The big shifts changing how people connect, discover and communicate.",
+p:["The biggest shift is from public broadcasting to private sharing. People post less on open feeds and share more in group chats, close friends lists and small communities where conversation feels safer.","Short-form video continues to dominate discovery, while live audio and live streams add real-time connection. AI is entering too, powering recommendations, editing tools, translation and chat assistants.","Authenticity is the new currency. Audiences respond to unpolished, honest content over heavily produced posts, and they increasingly question what is real as AI-generated media grows."],
+k:["Private groups and communities are growing faster than public feeds.","AI tools lower the barrier to creating content.","Trust and transparency will decide which platforms last."],
+tb:[["Trend","What it means","Who benefits"],["Private sharing","Smaller, safer circles","Everyday users"],["Short video","Fast discovery","Creators, brands"],["AI features","Easier creation, translation","Everyone"],["Social commerce","Buy without leaving the app","Small businesses"]],
+f:[["Will AI replace creators?","AI is a tool that speeds up work. Personality, trust and lived experience remain hard to replace."],["Are public feeds dying?","They are changing. Discovery still happens publicly, while conversation moves to private spaces."]]},
+business:{n:"Business",t:"Social Media for Business",l:"How brands and small businesses use social networks to grow.",
+p:["For businesses, social media works as a storefront, a support desk and an advertising channel at once. Customers research brands on social platforms before buying, so a clear profile and active responses build credibility.","Organic content builds long-term trust, while paid ads bring faster reach. The best results mix both: useful posts that teach or entertain, plus targeted campaigns for launches and offers.","Social commerce is growing quickly. Shoppable posts, live sales and direct chat ordering let small sellers reach customers without building a website first."],
+k:["Know your audience before choosing platforms.","Reply to comments and messages quickly; it signals reliability.","Track reach, engagement and conversions, not just followers."],
+tb:[["Goal","Tactic","Metric"],["Awareness","Short videos, collaborations","Reach, views"],["Trust","Reviews, behind-the-scenes","Engagement rate"],["Sales","Shoppable posts, ads","Conversions"],["Support","Chat and comment replies","Response time"]],
+f:[["How often should a business post?","Three to five quality posts a week is a good start. Quality and consistency matter more than volume."],["Is paid advertising necessary?","Not always, but it speeds up growth once you know which content works."]]},
+about:{n:"About",t:"About SOCIAL HUB",l:"Our mission is to explain social networking in clear, practical language.",
+p:["SOCIAL HUB is an educational portal covering platforms, creators, privacy, trends and business use of social media. Each section explains the topic from basics to practical advice.","The headlines and figures shown on this site are illustrative samples for demonstration. Before acting on any information, check official sources and platform help pages.","Have a suggestion or topic request? Reach us at hello@socialhub.example."],k:["Plain language, no jargon.","Practical steps you can apply today.","Regularly updated sections."],tb:null,f:[["Is this site affiliated with any platform?","No. SOCIAL HUB is independent and not affiliated with any social network."]]}
+};
+var order=["platforms","creators","privacy","trends","business","about"];
+var nav=document.getElementById("nav"),app=document.getElementById("app");
+function e(s){return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+function home(){
+ var h='<section class="hero"><small>Social Networking Explained</small><h1>Understand the platforms, people and trends connecting the world</h1><p>In-depth guides on how social networks work, how creators earn, how to stay safe and how businesses grow online.</p><a class="btn" href="#platforms">Start reading</a></section>';
+ h+='<div class="stats"><div class="stat"><b>5B+</b><span>people use social media</span></div><div class="stat"><b>2.5 hrs</b><span>average daily time</span></div><div class="stat"><b>6</b><span>in-depth sections</span></div><div class="stat"><b>100%</b><span>free to read</span></div></div>';
+ h+='<h2>Explore topics</h2><div class="grid">';
+ order.slice(0,5).forEach(function(k){var s=S[k];h+='<div class="card"><span class="tag">Guide</span><h3>'+e(s.t)+'</h3><p>'+e(s.l)+'</p><a class="more" href="#'+k+'">Read guide →</a></div>'});
+ h+='</div><h2>Why this matters</h2><div class="body"><p>Social networks now shape how we get news, find jobs, shop and stay in touch. Knowing how they work helps you use them with confidence, protect yourself and make smarter decisions, whether you are a student, creator or business owner.</p></div>';
+ return h}
+function page(k){
+ var s=S[k],h='<div class="page"><div class="crumb"><a href="#home">Home</a> / '+e(s.n)+'</div><h1>'+e(s.t)+'</h1><p class="lead">'+e(s.l)+'</p><div class="body">';
+ s.p.forEach(function(p){h+='<p>'+e(p)+'</p>'});
+ h+='<div class="key"><b>Key takeaways</b><ul>'+s.k.map(function(x){return'<li>'+e(x)+'</li>'}).join("")+'</ul></div></div>';
+ if(s.tb){h+='<h2>At a glance</h2><div class="tbl"><table><tr>'+s.tb[0].map(function(c){return'<th>'+e(c)+'</th>'}).join("")+'</tr>'+s.tb.slice(1).map(function(r){return'<tr>'+r.map(function(c){return'<td>'+e(c)+'</td>'}).join("")+'</tr>'}).join("")+'</table></div>'}
+ h+='<h2>Frequently asked questions</h2><div class="body">'+s.f.map(function(q){return'<details><summary>'+e(q[0])+'</summary><p>'+e(q[1])+'</p></details>'}).join("")+'</div>';
+ var i=order.indexOf(k),nx=S[order[(i+1)%order.length]];
+ h+='<h2>Next up</h2><div class="card"><h3>'+e(nx.t)+'</h3><p>'+e(nx.l)+'</p><a class="more" href="#'+order[(i+1)%order.length]+'">Continue →</a></div></div>';
+ return h}
+function route(){
+ var k=(location.hash||"#home").slice(1);if(k!=="home"&&!S[k])k="home";
+ nav.innerHTML=["home"].concat(order).map(function(x){return'<a href="#'+x+'"'+(x===k?' class="on"':'')+'>'+(x==="home"?"Home":S[x].n)+'</a>'}).join("");
+ app.innerHTML=k==="home"?home():page(k);window.scrollTo(0,0)}
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
